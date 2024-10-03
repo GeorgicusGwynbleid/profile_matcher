@@ -3,6 +3,8 @@ package com.example.profile.matcher.repositories;
 import com.example.profile.matcher.entities.Profile;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
+import java.util.Optional;
+
 public interface ProfileRepository extends MongoRepository<Profile, String> {
-    Profile findByPlayerId(String playerId);
+    Optional<Profile> findByPlayerId(String playerId);
 }
