@@ -40,8 +40,11 @@ public class ProfileService {
 //                    campaignService.doesProfileMatchCampaign(userProfile,campaign)) {
                     campaignService.matchesCampaign(userProfile,campaign)) {
                 userProfile.getActiveCampaigns().add(campaign.getName());
-                LOG.info("Updated user profile " + userProfile);
+                LOG.info(String.format("Adding campaign [%s] to user profile %s",campaign.getName(), userProfile));
                 updateProfileField(playerId, "active_campaigns", userProfile.getActiveCampaigns());
+            }
+            else {
+                LOG.info(String.format("Campaign [%s] does not match user profile",campaign.getName()));
             }
         });
 

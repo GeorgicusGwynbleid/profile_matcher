@@ -6,6 +6,7 @@ import com.example.profile.matcher.entities.Profile;
 import com.example.profile.matcher.repositories.CampaignRepository;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import jakarta.annotation.PostConstruct;
 import org.apache.commons.logging.Log;
@@ -31,6 +32,7 @@ public class CampaignService {
     @PostConstruct
     public void init(){
         objectMapper.registerModule(new JavaTimeModule());
+        objectMapper.setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);
     }
 
     public List<Campaign> getAllCampaigns() {
