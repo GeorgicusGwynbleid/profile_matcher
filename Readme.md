@@ -1,0 +1,2 @@
+I thought the service must be secure, so the requests should be made with some kind of authentication. I thought about using JWT tokesn, so I made an authentication controller, that takes a request that contains user and password values that are defined in the application properties file (is not how one would do it in production) and returns the token which will later on be used in requests on the data.
+I locally setup a mongo DB, with a collection for profile and one for campaings, and retrieved the data from there.
